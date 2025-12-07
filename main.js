@@ -92,7 +92,7 @@ function renderStore() {
         <div class="item">
             <div class="title">${item.title}</div>
             <div class="price">${numberToCurrency(item.price)}</div>
-            <div class="qty">${item.qty} units</div>
+            <div class="qty">Stock: ${item.qty} unidades</div>
             <div class="actions"><button class="add" data-id="${
               item.id
             }">Add to the shopping cart</button></div>
@@ -124,7 +124,7 @@ function renderShoppingCart() {
             <div class="item">
                 <div class="title">${dbItem.title}</div>
                 <div class="price">${numberToCurrency(dbItem.price)}</div>
-                <div class="qty">${item.qty} units</div>
+                <div class="qty">Stock: ${item.qty} unidades</div>
                 <div class="subtotal">Subtotal: ${numberToCurrency(
                   item.qty * dbItem.price
                 )}</div>
@@ -137,12 +137,13 @@ function renderShoppingCart() {
   });
   const closeButton = `
   <div class="cart-header">
-    <button id="bClose">Close</button>
+    <h2>Carrito de Compras</h2>
+    <button id="bClose">Cerrar</button>
   </div>`;
   const purchaseButton =
     shoppingCart.items.length > 0
       ? `<div class="cart-actions">
-    <button id="bPurchase">Buy</button>
+    <button id="bPurchase">Comprar</button>
   </div>`
       : "";
   const total = shoppingCart.methods.getTotal();
